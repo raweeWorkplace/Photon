@@ -7,7 +7,7 @@ package Panels;
 
 
 import Dao.DataBase_Connection;
-import PanelForms.Test.Encryption;
+import controller.Encryption;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;

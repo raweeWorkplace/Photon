@@ -5,6 +5,7 @@
  */
 package Panels;
 
+import controller.functionTools;
 import Dao.DataBase_Connection;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;

@@ -5,8 +5,9 @@
  */
 package Panels;
 
+import controller.functionTools;
 import Dao.DataBase_Connection;
-import PanelForms.Test.MyIntFilter;
+import controller.MyIntFilter;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import java.sql.Connection;
