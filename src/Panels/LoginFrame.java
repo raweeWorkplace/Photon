@@ -6,7 +6,7 @@
 package Panels;
 
 import Dao.DataBase_Connection;
-import PanelForms.Test.Encryption;
+import controller.Encryption;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
@@ -47,13 +47,14 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginFrame
      */
-    @SuppressWarnings("OverridableMethodCallInConstructor")
+ 
     public LoginFrame() {
         //getImage();
         initComponents();
         dao = new DataBase_Connection();
         this.getRootPane().setDefaultButton(Submit_btn);
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         try {
             bi = ImageIO.read(getClass().getResource("/BillingIcon/invoice.png"));
             this.setIconImage(bi);
@@ -119,6 +120,7 @@ public class LoginFrame extends javax.swing.JFrame {
                         cal.reportMenu.setEnabled(true);
                     }
                     cal.setVisible(true);
+                    this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                     close();
 
                 } else {
@@ -139,6 +141,7 @@ public class LoginFrame extends javax.swing.JFrame {
     
 
     public void close() {
+        
         WindowEvent winClosingEvent = new WindowEvent(SwingUtilities.getWindowAncestor(introPanel), WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
@@ -168,12 +171,13 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblCancel = new javax.swing.JLabel();
         lblreg = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
         setUndecorated(true);
-        setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
         jPanel1.setBackground(java.awt.SystemColor.control);
@@ -254,7 +258,7 @@ public class LoginFrame extends javax.swing.JFrame {
         logInPanelLayout.setVerticalGroup(
             logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -287,7 +291,7 @@ public class LoginFrame extends javax.swing.JFrame {
             .addComponent(logInPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TitlePanel.setBackground(new java.awt.Color(72, 89, 253));
+        TitlePanel.setBackground(new java.awt.Color(241, 65, 153));
 
         jLabel5.setFont(new java.awt.Font("Century Schoolbook L", 1, 40)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
@@ -309,6 +313,14 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("@ 977 - 9844243424");
 
+        lblCancel.setBackground(java.awt.Color.blue);
+        lblCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BillingIcon/delete.png"))); // NOI18N
+        lblCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCancelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout TitlePanelLayout = new javax.swing.GroupLayout(TitlePanel);
         TitlePanel.setLayout(TitlePanelLayout);
         TitlePanelLayout.setHorizontalGroup(
@@ -318,38 +330,43 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(TitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TitlePanelLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel6))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitlePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)))
-                .addContainerGap())
+                        .addGroup(TitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitlePanelLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)))
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitlePanelLayout.createSequentialGroup()
+                        .addComponent(lblCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         TitlePanelLayout.setVerticalGroup(
             TitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TitlePanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitlePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TitlePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7)))
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         lblreg.setFont(new java.awt.Font("Abyssinica SIL", 0, 18)); // NOI18N
         lblreg.setForeground(java.awt.Color.blue);
         lblreg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BillingIcon/add-profile.png"))); // NOI18N
         lblreg.setText("Register Now.");
-        lblreg.setEnabled(false);
         lblreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblregMouseClicked(evt);
@@ -463,6 +480,11 @@ public class LoginFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pwd_txtKeyPressed
 
+    private void lblCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelMouseClicked
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        close();
+    }//GEN-LAST:event_lblCancelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -527,6 +549,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCancel;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblreg;
     private javax.swing.JPanel logInPanel;

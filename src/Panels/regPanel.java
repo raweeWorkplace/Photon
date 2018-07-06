@@ -7,7 +7,7 @@ package Panels;
 
 //import PanelForms.Test.RegistrationFrame;
 import Dao.DataBase_Connection;
-import PanelForms.Test.Encryption;
+import controller.Encryption;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
