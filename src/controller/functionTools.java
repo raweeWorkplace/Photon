@@ -5,7 +5,11 @@
  */
 package controller;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +34,11 @@ public class functionTools {
             return table.getModel().getRowCount()<=0;
         }
         return false;
+    }
+     
+     public void close(JPanel panel) {
+        WindowEvent winClosingEvent = new WindowEvent(SwingUtilities.getWindowAncestor(panel), WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
     
 }
