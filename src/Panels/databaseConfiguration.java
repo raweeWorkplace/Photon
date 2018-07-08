@@ -7,6 +7,7 @@ package Panels;
 
 import Dao.databaseInitializer;
 import controller.databaseConfigurationController;
+import controller.functionTools;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -261,7 +262,7 @@ public class databaseConfiguration extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         confPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel5, jLabel6, jLabel7, txtContact, txtEmail, txtName, txtPAN, txtProductKey});
@@ -298,9 +299,8 @@ public class databaseConfiguration extends javax.swing.JFrame {
                     .addComponent(lblClose, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(confPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(confPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(windowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 564, -1));
@@ -329,10 +329,9 @@ public class databaseConfiguration extends javax.swing.JFrame {
                 txtProductKey.requestFocus();
                 init.createDataBase();
                 controller.entry_data();
-                lf = new LoginFrame();
                 this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                controller.close(confPanel);
-                lf.setVisible(true);
+                new functionTools().close(confPanel);
+                new LoginFrame().setVisible(true);
                   
             }else{
                 txtProductKey.requestFocus();
@@ -422,7 +421,7 @@ int key = evt.getKeyCode();
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        controller.close(windowPanel);        
+        new functionTools().close(windowPanel);        
     }//GEN-LAST:event_lblCloseMouseClicked
 
     /**

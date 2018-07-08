@@ -5,17 +5,12 @@
  */
 package Panels;
 
-import Dao.databaseInitializer;
-import controller.databaseConfigurationController;
+import controller.startup_controller;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import pojo.dataConfigurationPojo;
 
 /**
  *
@@ -25,13 +20,7 @@ public class startUp extends javax.swing.JFrame {
     
     
     BufferedImage bi;
-    databaseInitializer init;
-    databaseConfiguration data_conf;
-    databaseConfigurationController controller ;
-    LoginFrame lf;
-    Connection conInstance;
-    Statement smtInstance;
-    ResultSet resInstance;
+    
     /**
      * Creates new form startUp
      */
@@ -45,22 +34,7 @@ public class startUp extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(LoginFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        selector();
-    }
-    
-    
-    
-    public void selector(){
-        init = new databaseInitializer();
-        if(init.checkDBExists("photon")){
-            lf = new LoginFrame();
-            lf.setVisible(true);
-        }else{
-            data_conf = new databaseConfiguration();
-            data_conf.setVisible(true);
-        }
-        controller = new databaseConfigurationController();
-        controller.close(startPanel);
+        new startup_controller(startPanel);
     }
 
     /**

@@ -40,13 +40,6 @@ public class databaseInitializer {
             
         } catch (ClassNotFoundException | SQLException ex) {
         }
-        finally{
-            try {
-                connectionInstance.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(databaseInitializer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         
     }
     

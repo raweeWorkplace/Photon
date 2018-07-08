@@ -72,10 +72,7 @@ public class databaseConfigurationController {
      }
     
     
-    public void close(JPanel panel) {
-        WindowEvent winClosingEvent = new WindowEvent(SwingUtilities.getWindowAncestor(panel), WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
-    }
+    
     
     public void entry_data(){
         try {
@@ -87,12 +84,6 @@ public class databaseConfigurationController {
         } catch (SQLException ex) {
             Logger.getLogger(databaseConfigurationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        finally{
-            try {
-                conInstance.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(databaseConfigurationController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
-}
+    
+   }
