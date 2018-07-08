@@ -111,8 +111,8 @@ public class login_controller {
                    hf.setGlobalVariableCashier(UserName);
                     
                     if("Admin".equals(UserName)){
-                        hf.masterMenu.setEnabled(true);
-                        hf.reportMenu.setEnabled(true);
+                        hf.labelMaster.setEnabled(true);
+                        hf.labelReport.setEnabled(true);
                     }
                     hf.setVisible(true);
                 return true;
