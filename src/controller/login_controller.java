@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import pojo.log_in_pojo;
+import beans.log_in_pojo;
 
 /**
  *

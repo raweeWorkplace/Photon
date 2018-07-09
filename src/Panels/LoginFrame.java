@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import pojo.log_in_pojo;
+import beans.log_in_pojo;
 
 /**
  *

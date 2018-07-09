@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import pojo.dataConfigurationPojo;
+import beans.dataConfigurationPojo;
 
 
 /**

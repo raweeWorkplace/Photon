@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import pojo.log_in_pojo;
+import beans.log_in_pojo;
 
 /**
  *
